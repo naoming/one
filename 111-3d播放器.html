@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111-3d播放器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(images/hai.jpg)no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            /*background-color: red;*/
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            margin-left: -100px;
+            transform-style: preserve-3d;
+            /*transform: rotateX(-10deg);*/
+            animation: sport 6s linear 0s infinite normal;
+        }
+        ul li{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            position: absolute;
+            background-color: black;
+            left: 0;
+            top: 0;
+        }
+        ul li img{
+            width: 200px;
+            height: 200px;
+            border: 5px solid darkblue;
+            box-sizing: border-box;
+        }
+        ul li:nth-child(1){
+            transform: rotateY(60deg) translateZ(200px);
+        }
+        ul li:nth-child(2){
+            background-color: blue;
+            transform: rotateY(120deg) translateZ(200px);
+        }
+        ul li:nth-child(3){
+            transform: rotateY(180deg) translateZ(200px);
+        }
+        ul li:nth-child(4){
+            transform: rotateY(240deg) translateZ(200px);
+        }
+        ul li:nth-child(5){
+            transform: rotateY(300deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            transform: rotateY(360deg) translateZ(200px);
+        }
+        ul:hover{
+            /*鼠标滑过时动画效果暂停*/
+            animation-play-state: paused;
+        }
+        ul:hover li img{
+            opacity: 0.5;
+        }
+        ul li:hover img{
+            opacity: 1;
+        }
+        @keyframes sport {
+            /*
+            注意点：
+            1.动画中如果有和默认样式有同名的属性会覆盖默认样式中的同名的属性
+            2.在编写动画的时候固定不变的值写在前面，需要变化的值写在后面。否则会出问题。
+            */
+            from{
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+        .heart{
+            width: 120px;
+            height: 100px;
+            position: absolute;
+            left: 100px;
+            bottom: 100px;
+            animation: move 20s linear 0s infinite normal;
+        }
+        @keyframes move {
+            0%{
+                left: 100px;
+                bottom: 100px;
+                opacity: 1;
+            }
+           20%{
+               left: 400px;
+               bottom: 400px;
+               opacity: 0;
+           }
+            40%{
+                left: 600px;
+                bottom: 600px;
+                opacity: 1;
+            }
+            60%{
+                left: 1200px;
+                bottom: 300px;
+                opacity: 0;
+            }
+            80%{
+                left: 1400px;
+                bottom: 100px;
+                opacity: 1;
+            }
+            100%{
+                left: 800px;
+                bottom: -200px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="../HTML/images/song1.jpg" alt=""></li>
+    <li><img src="../HTML/images/song2.jpg" alt=""></li>
+    <li><img src="../HTML/images/song3.jpg" alt=""></li>
+    <li><img src="../HTML/images/song4.jpg" alt=""></li>
+    <li><img src="../HTML/images/song5.jpg" alt=""></li>
+    <li><img src="../HTML/images/song6.jpg" alt=""></li>
+</ul>
+<img src="images/半心.png" class="heart">
+<!--autoplay自动播放  loop 无限循环  controls="controls"-->
+<audio src="images/mp3/Brave.mp3" autoplay="autoplay" loop="loop" ></audio>
+<!--<audio autoplay="autoplay" controls="controls">
+    <source scr="../HTML/mp3/Brave.mp3" type="audio/mp3">
+</audio>-->
+</body>
+
+</html>
